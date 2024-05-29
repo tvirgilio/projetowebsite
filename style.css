@@ -1,0 +1,107 @@
+
+*{
+	margin:0; /* margin da pagina */
+	padding:0;/* espaco entre o menu */
+	color:#aaa;
+	font-family:'Arial', 'sans-serif;';
+	}
+	
+.menu{
+	width:100%;
+	height:50px;
+	background-color: #222;
+	}
+	
+.menu>ul{
+	list-style:none;	/* tira a bolinha do ul */
+	position:relative;/* reativo para cada opcao do menu */
+	margin-left:50px;/* 50px a esqueda do menu */
+	}
+
+.menu ul li{
+		width:150px; /* largura de 150 px */
+		float:left; /* coloca a esqueda */
+	}
+
+.menu a{
+	padding:15px;
+	display:block; /* coloca como bloco, tambem temos inline que pode ser por linha */
+	text-decoration: none; /* tira o sublinhado do linl */
+	background-color: #222;
+	text-align:center;/* deixar texto centralizado
+	*/
+	}
+
+.menu ul ul{
+	list-style:none;
+	position:absolute;
+	visibility:hidden; /* deixa de mostrar o elemento */
+	}
+	
+.menu ul li:hover ul{ /* coloca o efeito no menu ao passar o mouse */
+	visibility:visible; /* valor padrao para deixar visivel o elemento */
+	}
+	
+.menu a:hover{
+	background-color:#f4f4f4;
+	}
+
+.menu ul ul li{
+	float:none;
+	border-bottom: solid 1px #ccc; /* borda do botao como solida e 1 px aplicado */
+	}
+.menu ul ul li a{
+	background-color:#069;
+	}
+#bt_menu{
+	display: none;
+	}
+label[for='bt_menu']{
+	padding:5px;
+	background-color:#222;
+	color:#fff;
+	font-family:'Arial';
+	text-align:center;
+	font-size:30px;
+	cursor:pointer;
+	display:none;
+	width:50px;
+	height:50px;
+	}	
+label[for='bt_menu']:hover{
+	background-color:#f4f4f4;
+	color:#aaa;
+	}
+@media (max-width: 800px) {
+.menu{
+	margin-left:-100%;
+	transition:all .4s;
+	}
+label[for='bt_menu']{
+	display:block;
+	}
+.menu>ul{
+	margin-left:0;
+	}
+.menu{
+	margin-top:5px;
+	}
+.menu ul li{
+	width:100%;
+	float:none;
+	}
+.menu ul ul{
+	position:static;
+	overflow:hidden;
+	max-height:0;
+	transition:all .4s;
+	}
+.menu ul li:hover ul{
+	height:auto;
+	max-height:200px;
+	transition:all .4s;
+	}
+#bt_menu:checked ~ .menu{
+	margin-left:0;
+	}
+}
